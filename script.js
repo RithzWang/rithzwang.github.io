@@ -25,14 +25,10 @@ async function getDiscordStatus() {
         const discordUser = data.data.discord_user;
         const spotifyData = data.data.spotify;
 
-        // 1. AUTO-UPDATE PROFILE PICTURE
-        const profileImg = document.querySelector('.profile-picture');
-        if (profileImg && discordUser.avatar) {
-            const avatarUrl = `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${discordUser.avatar}.png?size=512`;
-            if (profileImg.src !== avatarUrl) profileImg.src = avatarUrl;
-        }
+        // [REMOVED: Auto-Update Profile Picture logic is gone]
+        // Your site will now keep 'pictures/pro1.jpg' forever.
 
-        // 2. AVATAR DECORATION
+        // 1. AVATAR DECORATION (The ring/effect around the picture)
         const decorationImg = document.getElementById('discord-decoration');
         if (decorationImg) {
             const decorationHash = discordUser.avatar_decoration_data ? discordUser.avatar_decoration_data.asset : null;
@@ -44,8 +40,10 @@ async function getDiscordStatus() {
             }
         }
 
-        // 3. SPOTIFY DATA
+        // 2. SPOTIFY DATA
         const spotifyContainer = document.getElementById('spotify-container');
+        const progressWrapper = document.querySelector('.spotify-progress-wrapper');
+
         if (spotifyContainer) {
             spotifyContainer.style.display = 'flex'; 
 
@@ -63,15 +61,19 @@ async function getDiscordStatus() {
                 spotifyContainer.onclick = () => window.open(`https://open.spotify.com/track/${spotifyData.track_id}`, '_blank');
                 spotifyContainer.style.cursor = "pointer";
 
+                // SHOW PROGRESS BAR
+                if (progressWrapper) progressWrapper.style.display = 'flex'; 
+
             } else {
                 isPlaying = false;
                 document.getElementById('spotify-album-art').src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/168px-Spotify_logo_without_text.svg.png';
-                document.getElementById('spotify-song-title').textContent = 'Not Found';
+                document.getElementById('spotify-song-title').textContent = 'Not Playing';
                 document.getElementById('spotify-artist-name').textContent = 'Spotify';
                 document.getElementById('spotify-album-art').style.filter = "grayscale(100%)";
                 
-                // Reset Progress Bar
-                updateProgressBar(0, 1); 
+                // HIDE PROGRESS BAR completely when not playing
+                if (progressWrapper) progressWrapper.style.display = 'none'; 
+                
                 spotifyContainer.onclick = null;
                 spotifyContainer.style.cursor = "default";
             }
@@ -84,27 +86,23 @@ async function getDiscordStatus() {
 
 // --- PROGRESS BAR LOGIC ---
 function updateProgressBar() {
-    if (!isPlaying) {
-        document.getElementById('spotify-time-current').innerText = "0:00";
-        document.getElementById('spotify-time-total').innerText = "0:00";
-        document.getElementById('spotify-progress-fill').style.width = "0%";
-        return;
-    }
+    if (!isPlaying) return; 
 
     const now = Date.now();
     const totalDuration = songEndTimestamp - songStartTimestamp;
     const currentProgress = now - songStartTimestamp;
     
-    // Calculate percentage
     let percentage = (currentProgress / totalDuration) * 100;
-    if (percentage > 100) percentage = 100; // Cap at 100%
+    if (percentage > 100) percentage = 100;
 
-    // Update Bar Width
-    document.getElementById('spotify-progress-fill').style.width = `${percentage}%`;
+    const barFill = document.getElementById('spotify-progress-fill');
+    if (barFill) barFill.style.width = `${percentage}%`;
 
-    // Update Time Text
-    document.getElementById('spotify-time-current').innerText = formatTime(currentProgress);
-    document.getElementById('spotify-time-total').innerText = formatTime(totalDuration);
+    const timeCurr = document.getElementById('spotify-time-current');
+    const timeTot = document.getElementById('spotify-time-total');
+    
+    if (timeCurr) timeCurr.innerText = formatTime(currentProgress);
+    if (timeTot) timeTot.innerText = formatTime(totalDuration);
 }
 
 // Helper: Convert milliseconds to MM:SS
@@ -117,6 +115,6 @@ function formatTime(ms) {
 }
 
 // --- TIMERS ---
-getDiscordStatus(); // Run once immediately
-setInterval(getDiscordStatus, 5000); // Fetch data every 5s
-setInterval(updateProgressBar, 1000); // Update progress bar every 1s
+getDiscordStatus(); 
+setInterval(getDiscordStatus, 5000); 
+setInterval(updateProgressBar, 1000); 
