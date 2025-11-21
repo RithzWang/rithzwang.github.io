@@ -59,3 +59,10 @@ const spotifyContainer = document.getElementById('spotify-container');
 
         } catch (error) {
         console.error("Error fetching Discord status:", error);
+    }
+
+
+    }
+
+getDiscordStatus();
+setInterval(getDiscordStatus, 5000);
