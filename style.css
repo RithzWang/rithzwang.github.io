@@ -250,19 +250,6 @@ footer {
     display: inline-block;
 }
 
-.profile-picture::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #fff; /* Adjust border style as needed */
-    border-radius: 50%;
-    box-sizing: border-box;
-    /* animation: pulseAnimation 2s infinite altern
-ate;  Adjust animation properties as needed */
-}
 
 @keyframes pulseAnimation {
     from {
@@ -271,4 +258,10 @@ ate;  Adjust animation properties as needed */
     to {
         transform: scale(1.1);
     }
+}.profile-picture {
+    width: 130px;       /* Fixed size */
+    height: 130px;      /* Fixed size */
+    border-radius: 50%; /* Circle */
+    object-fit: cover;  /* Ensures image doesn't stretch weirdly */
+    border: 2px solid white; /* The white ring */
 }
