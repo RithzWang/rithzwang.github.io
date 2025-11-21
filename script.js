@@ -56,3 +56,6 @@ const spotifyContainer = document.getElementById('spotify-container');
                 document.getElementById('spotify-album-art').style.filter = "grayscale(100%)"; 
             }
         }
+
+        } catch (error) {
+        console.error("Error fetching Discord status:", error);
