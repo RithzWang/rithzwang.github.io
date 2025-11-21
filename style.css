@@ -143,18 +143,18 @@ p {
 }
 
 .social-icons a {
-    color: #fff; /* Change icon color */
+    color: #fff; /* Icon color */
     margin: 0 3px; /* Space between icons */
-    font-size: 24px; /* Adjust icon size to fit within 38x38px */
+    font-size: 24px; /* Icon size */
     text-decoration: none; /* Remove underline */
-    display: inline-block; /* Enable width/height settings */
-    width: 42px; /* Width of circular frame */
-    height: 42px; /* Height of circular frame */
-    border-radius: 50%; /* Makes the frame circular */
-    background-color: rgba(255, 255, 255, 0.2); /* Optional background color */
-    line-height: 42px; /* Center icon vertically */
-    margin-bottom: 30px; /* Adds space between the icons and the button */
-}
+    display: inline-flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    width: 42px; /* Circle width */
+    height: 42px; /* Circle height */
+    border-radius: 50%; /* Make circle */
+    background-color: rgba(255, 255, 255, 0.2); /* Background color */
+    margin-bottom: 30px; /* Space below icons */
 }
 
 
