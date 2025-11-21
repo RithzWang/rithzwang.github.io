@@ -30,93 +30,29 @@ async function getDiscordStatus() {
         }
 
         
-// script.js
+const spotifyContainer = document.getElementById('spotify-container');
+        if (spotifyContainer) {
+            // Always make sure the card is visible
+            spotifyContainer.style.display = 'block'; 
 
-// 🔴 REPLACE THESE WITH YOUR REAL KEYS
-const client_id = 'a31519d8aee54bdf9c0ed526fece1310'; 
-const client_secret = 'a50ee2c9fb21403badf38ffdc2b226e5'; 
-const refresh_token = 'YOUR_REFRESH_TOKEN'; 
-
-const basic = btoa(`${client_id}:${client_secret}`);
-const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
-const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
-
-async function getAccessToken() {
-    const response = await fetch(TOKEN_ENDPOINT, {
-        method: 'POST',
-        headers: {
-            Authorization: `Basic ${basic}`,
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-            grant_type: 'refresh_token',
-            refresh_token,
-        }),
-    });
-
-    return response.json();
-}
-
-async function getNowPlaying() {
-    const { access_token } = await getAccessToken();
-
-    const response = await fetch(NOW_PLAYING_ENDPOINT, {
-        headers: {
-            Authorization: `Bearer ${access_token}`,
-        },
-    });
-
-    // 204 means nothing is playing
-    if (response.status === 204 || response.status > 400) {
-        return null;
-    }
-
-    return response.json();
-}
-
-async function updateWidget() {
-    const widget = document.getElementById('spotify-widget');
-    const trackLink = document.getElementById('track-link');
-    const artistName = document.getElementById('artist-name');
-    const albumArt = document.getElementById('album-art');
-    const statusText = document.getElementById('status-text');
-    const bars = document.querySelector('.bars-container');
-
-    try {
-        const song = await getNowPlaying();
-
-        if (song && song.is_playing) {
-            widget.classList.remove('offline');
-            
-            const title = song.item.name;
-            const artist = song.item.artists.map((_artist) => _artist.name).join(', ');
-            const albumImage = song.item.album.images[0].url;
-            const link = song.item.external_urls.spotify;
-
-            trackLink.textContent = title;
-            trackLink.href = link;
-            artistName.textContent = artist;
-            albumArt.src = albumImage;
-            albumArt.style.display = 'block';
-            statusText.style.display = 'none';
-            bars.style.display = 'flex';
-        } else {
-            // Not playing
-            widget.classList.add('offline');
-            statusText.textContent = 'Not Listening to Anything';
-            statusText.style.display = 'block';
-            trackLink.textContent = '';
-            artistName.textContent = '';
-            albumArt.style.display = 'none';
-            bars.style.display = 'none';
+            if (spotifyData) {
+                // IF MUSIC IS PLAYING:
+                document.getElementById('spotify-album-art').src = spotifyData.album_art_url;
+                document.getElementById('spotify-song-title').textContent = spotifyData.song;
+                document.getElementById('spotify-artist-name').textContent = spotifyData.artist;
+                
+                // Make image normal
+                document.getElementById('spotify-album-art').style.filter = "none"; 
+            } else {
+                // IF NO MUSIC IS PLAYING:
+                // Set a default Spotify Logo
+                document.getElementById('spotify-album-art').src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/168px-Spotify_logo_without_text.svg.png';
+                
+                // Set text to "Not Playing"
+                document.getElementById('spotify-song-title').textContent = 'Not Playing';
+                document.getElementById('spotify-artist-name').textContent = 'Spotify';
+                
+                // Optional: Make the logo black & white to show it's offline
+                document.getElementById('spotify-album-art').style.filter = "grayscale(100%)"; 
+            }
         }
-    } catch (e) {
-        console.error("Error fetching Spotify status", e);
-    }
-}
-
-// Update on load
-updateWidget();
-
-// Update every 10 seconds
-setInterval(updateWidget, 10000);
