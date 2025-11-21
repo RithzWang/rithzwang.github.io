@@ -263,13 +263,6 @@ footer {
 }
 
 
-@keyframes pulseAnimation {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.1);
-    }
 }.profile-picture {
     width: 130px;       /* Fixed size */
     height: 130px;      /* Fixed size */
