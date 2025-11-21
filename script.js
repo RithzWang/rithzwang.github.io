@@ -49,7 +49,7 @@ const spotifyContainer = document.getElementById('spotify-container');
                 document.getElementById('spotify-album-art').src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/168px-Spotify_logo_without_text.svg.png';
                 
                 // Set text to "Not Playing"
-                document.getElementById('spotify-song-title').textContent = 'Not Playing';
+                document.getElementById('spotify-song-title').textContent = 'Not Found';
                 document.getElementById('spotify-artist-name').textContent = 'Spotify';
                 
                 // Optional: Make the logo black & white to show it's offline
