@@ -5,7 +5,7 @@ body {
     color: #fff; 
     
     /* --- UPDATED BACKGROUND SETTINGS --- */
-    background: linear-gradient(to bottom, #010101, #1c1c1c, #888888); 
+    background: linear-gradient(to bottom, #1c1c1c, #333333, #555555, #808080); 
     
     /* 1. DELETE or COMMENT OUT this line: */
     /* background-attachment: fixed; */ 
