@@ -176,8 +176,6 @@ footer {
 
 /* --------- */
 
-
-/* --- SPOTIFY CARD (Fixed for iPad) --- */
 .spotify-card {
     background-color: rgba(20, 20, 20, 0.8);
     border: 1px solid #333;
@@ -185,78 +183,26 @@ footer {
     padding: 12px 15px;
     width: 280px;
     margin: 20px auto;
-    text-align: left; /* Forces text to align left inside the card */
+    text-align: left;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     backdrop-filter: blur(5px);
     transition: transform 0.3s ease;
-    
-    /* Flexbox to stack header and content vertically */
     display: flex;
     flex-direction: column;
+
+    /* --- PROTECTION CODE START --- */
+    user-select: none;              /* Stops text highlighting/copying */
+    -webkit-user-select: none;      /* Safari/Chrome specific */
+    -webkit-touch-callout: none;    /* Stops iOS long-press menu */
+    /* --- PROTECTION CODE END --- */
 }
 
-.spotify-card:hover {
-    transform: scale(1.02);
-    border-color: #1DB954;
+/* Add this new rule to lock the images inside the card */
+.spotify-card img {
+    pointer-events: none;        /* Makes image "invisible" to clicks/touches */
+    -webkit-user-drag: none;     /* Stops dragging */
+    user-drag: none;
 }
-
-.spotify-header {
-    font-size: 12px;
-    color: #1DB954;
-    margin-bottom: 8px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-}
-
-.spotify-content {
-    display: flex !important;     /* Force row layout */
-    flex-direction: row !important;
-    align-items: center !important;
-    width: 100%;
-}
-
-#spotify-album-art {
-    /* Strict sizing to prevent giant logo */
-    width: 56px !important;
-    height: 56px !important;
-    min-width: 56px !important; /* Prevents squishing */
-    
-    border-radius: 8px;
-    margin-right: 12px;
-    object-fit: cover;
-    flex-shrink: 0; /* CRITICAL: Stops image from expanding */
-    transition: filter 0.3s ease;
-}
-
-.spotify-info {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.song-title {
-    font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block !important;
-    text-align: left !important;
-}
-
-.artist-name {
-    font-size: 12px;
-    color: #b3b3b3 !important;
-    margin: 2px 0 0 0;
-    display: block !important;
-    text-align: left !important;
-}
-
-
 
 
 
