@@ -24,6 +24,15 @@ header {
     height: 130px;
 }
 
+.profile-picture {
+    width: 130px;       /* Fixed size */
+    height: 130px;      /* Fixed size */
+    border-radius: 50%; /* Circle */
+    object-fit: cover;  /* Ensures image doesn't stretch weirdly */
+    border: 2px solid white; /* The white ring */
+}
+
+
 /* Forces the decoration to stay small, even if the HTML is messy */
 .avatar-decoration {
     position: absolute;
