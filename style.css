@@ -25,11 +25,17 @@ header {
 }
 
 .profile-picture {
-    width: 130px;       /* Fixed size */
-    height: 130px;      /* Fixed size */
-    border-radius: 50%; /* Circle */
-    object-fit: cover;  /* Ensures image doesn't stretch weirdly */
-    border: 2px solid white; /* The white ring */
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+   /* border: 2px solid white; */
+    transition: transform 0.3s ease;
+    
+    /* NEW PROTECTION LINES */
+    user-select: none;          /* Prevents highlighting */
+    -webkit-user-drag: none;    /* Prevents dragging on Chrome/Safari */
+    -webkit-touch-callout: none; /* Prevents long-press menu on iOS */
 }
 
 
