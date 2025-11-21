@@ -25,10 +25,7 @@ async function getDiscordStatus() {
         const discordUser = data.data.discord_user;
         const spotifyData = data.data.spotify;
 
-        // [REMOVED: Auto-Update Profile Picture logic is gone]
-        // Your site will now keep 'pictures/pro1.jpg' forever.
-
-        // 1. AVATAR DECORATION (The ring/effect around the picture)
+        // 1. AVATAR DECORATION
         const decorationImg = document.getElementById('discord-decoration');
         if (decorationImg) {
             const decorationHash = discordUser.avatar_decoration_data ? discordUser.avatar_decoration_data.asset : null;
@@ -61,7 +58,7 @@ async function getDiscordStatus() {
                 spotifyContainer.onclick = () => window.open(`https://open.spotify.com/track/${spotifyData.track_id}`, '_blank');
                 spotifyContainer.style.cursor = "pointer";
 
-                // SHOW PROGRESS BAR
+                // Ensure bar is visible
                 if (progressWrapper) progressWrapper.style.display = 'flex'; 
 
             } else {
@@ -71,8 +68,13 @@ async function getDiscordStatus() {
                 document.getElementById('spotify-artist-name').textContent = 'Spotify';
                 document.getElementById('spotify-album-art').style.filter = "grayscale(100%)";
                 
-                // HIDE PROGRESS BAR completely when not playing
-                if (progressWrapper) progressWrapper.style.display = 'none'; 
+                // --- VISUAL RESET (Keep showing 0:00) ---
+                if (progressWrapper) {
+                    progressWrapper.style.display = 'flex'; // Keep it visible
+                    document.getElementById('spotify-progress-fill').style.width = '0%';
+                    document.getElementById('spotify-time-current').innerText = '0:00';
+                    document.getElementById('spotify-time-total').innerText = '0:00';
+                }
                 
                 spotifyContainer.onclick = null;
                 spotifyContainer.style.cursor = "default";
@@ -86,7 +88,7 @@ async function getDiscordStatus() {
 
 // --- PROGRESS BAR LOGIC ---
 function updateProgressBar() {
-    if (!isPlaying) return; 
+    if (!isPlaying) return; // Stop calculating if music is off
 
     const now = Date.now();
     const totalDuration = songEndTimestamp - songStartTimestamp;
