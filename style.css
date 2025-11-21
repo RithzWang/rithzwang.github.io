@@ -37,13 +37,13 @@ header {
 .profile-picture-container {
     position: relative;
     display: inline-block;
-    width: 130px;
-    height: 130px;
+    width: 128px;
+    height: 128px;
 }
 
 .profile-picture {
-    width: 130px;
-    height: 130px;
+    width: 128px;
+    height: 128px;
     border-radius: 50%;
     object-fit: cover;
    /* border: 2px solid white; */
@@ -64,8 +64,8 @@ header {
     transform: translate(-50%, -50%);
     
     /* FIXED SIZES instead of percentages */
-    width: 156px !important; 
-    height: 156px !important;
+    width: 154px !important; 
+    height: 154px !important;
     
     pointer-events: none;
     z-index: 10;
