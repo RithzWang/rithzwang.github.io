@@ -25,8 +25,8 @@ header {
 }
 
 .profile-picture {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%; /* Create a circular frame */
     overflow: hidden; /* Ensure content stays within the circular frame */
     background-size: cover;
@@ -108,11 +108,11 @@ p {
     font-size: 22px; /* Adjust icon size to fit within 38x38px */
     text-decoration: none; /* Remove underline */
     display: inline-block; /* Enable width/height settings */
-    width: 39px; /* Width of circular frame */
-    height: 39px; /* Height of circular frame */
+    width: 42px; /* Width of circular frame */
+    height: 42px; /* Height of circular frame */
     border-radius: 50%; /* Makes the frame circular */
     background-color: rgba(255, 255, 255, 0.2); /* Optional background color */
-    line-height: 39px; /* Center icon vertically */
+    line-height: 42px; /* Center icon vertically */
     margin-bottom: 30px; /* Adds space between the icons and the button */
 }
 }
