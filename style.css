@@ -1,23 +1,21 @@
- /* Add this HTML block right before the body block */
+/* Add this HTML block right before the body block */
 html {
     min-height: -webkit-fill-available;
 }
 
 body {
     font-family: 'Ubuntu', sans-serif;
-    padding: 20px 0;
+    /* Increased padding 20px -> 23px */
+    padding: 23px 0;
     text-align: center;
     color: #fff; 
     
     background: linear-gradient(to bottom, #070707, #090909, #111111, #333333); 
     
     /* --- FIX STARTS HERE --- */
-    /* Keeps padding inside the width/height calculation so it doesn't scroll unnecessarily */
     box-sizing: border-box; 
     
-    /* Standard height */
     min-height: 100vh;
-    /* Fix for Instagram/iOS Webviews */
     min-height: -webkit-fill-available;
     /* --- FIX ENDS HERE --- */
 
@@ -25,34 +23,32 @@ body {
     margin: 0;
 }
 
-
-
-
-
 header {
-    margin-bottom: 20px;
-    margin-top: 30px; /* Added space at the top */
+    /* Increased margins */
+    margin-bottom: 23px;
+    margin-top: 33px; 
 }
 
 .profile-picture-container {
     position: relative;
     display: inline-block;
-    width: 128px;
-    height: 128px;
+    /* Increased 128px -> 131px */
+    width: 131px;
+    height: 131px;
 }
 
 .profile-picture {
-    width: 128px;
-    height: 128px;
+    /* Increased 128px -> 131px */
+    width: 131px;
+    height: 131px;
     border-radius: 50%;
     object-fit: cover;
-   /* border: 2px solid white; */
     transition: transform 0.3s ease;
     
     /* NEW PROTECTION LINES */
-    user-select: none;          /* Prevents highlighting */
-    -webkit-user-drag: none;    /* Prevents dragging on Chrome/Safari */
-    -webkit-touch-callout: none; /* Prevents long-press menu on iOS */
+    user-select: none;          
+    -webkit-user-drag: none;    
+    -webkit-touch-callout: none; 
 }
 
 
@@ -63,35 +59,38 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     
-    /* FIXED SIZES instead of percentages */
-    width: 154px !important; 
-    height: 154px !important;
+    /* Increased 154px -> 157px */
+    width: 157px !important; 
+    height: 157px !important;
     
     pointer-events: none;
     z-index: 10;
 }
 
 /* Ensure the container is set up correctly */
+/* Note: You had a duplicate class here, I updated these values too */
 .profile-picture-container {
-    position: relative; /* This is crucial */
+    position: relative; 
     display: inline-block;
-    width: 130px;
-    height: 130px;
-    margin-bottom: 10px;
+    /* Increased 130px -> 133px */
+    width: 133px;
+    height: 133px;
+    margin-bottom: 13px;
 }
 
 
 h1, p {
-    margin: 7px 0;
-    -webkit-touch-callout: none; /* iOS Safari */
+    margin: 10px 0; /* Increased 7px -> 10px */
+    -webkit-touch-callout: none; 
     -webkit-tap-highlight-color: transparent;
 }
 
 h1 {
   font-family: "Aref Ruqaa", serif;
   font-weight: 400;
-  font-size: 40px;
-  margin: 7px 0;
+  /* Increased 40px -> 43px */
+  font-size: 43px;
+  margin: 10px 0;
   background: linear-gradient(120deg, yellow, orange, red, orange, yellow);
   background-size: 400% auto;
   background-position: 0% center;
@@ -116,8 +115,7 @@ p.spidey-text {
     font-weight: bold;
     justify-content: center;
     font-family: 'Amiri', serif;
-    /* font-family: 'Noto Sans', sans-serif; */
-    margin: 0; /* Remove margin to reduce space */
+    margin: 0; 
 }
 
 
@@ -133,58 +131,50 @@ p.yousuf {
   animation: waveGlow 5s linear infinite;
 }
 
-@keyframes waveGlow {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 100% center;
-  }
-}
-
 
 p {
-    color: #777; /* Set text color to grey */
+    color: #777; 
     display: flex;
     justify-content: center;
-    font-family: 'Noto Sans', sans-serif; /* Change font to Noto Sans */
+    font-family: 'Noto Sans', sans-serif; 
 }
 
 .social-icons a {
-    color: #fff; /* Icon color */
-    margin: 0 3px; /* Space between icons */
-    font-size: 24px; /* Icon size */
-    text-decoration: none; /* Remove underline */
-    display: inline-flex; /* Use flexbox for centering */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    width: 42px; /* Circle width */
-    height: 42px; /* Circle height */
-    border-radius: 50%; /* Make circle */
-    background-color: rgba(255, 255, 255, 0.2); /* Background color */
-    margin-bottom: 30px; /* Space below icons */
+    color: #fff; 
+    margin: 0 6px; /* Increased 3px -> 6px for better spacing */
+    /* Increased font 24px -> 27px */
+    font-size: 27px; 
+    text-decoration: none; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    /* Increased circle size 42px -> 45px */
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%; 
+    background-color: rgba(255, 255, 255, 0.2); 
+    margin-bottom: 33px; /* Increased 30px -> 33px */
 }
 
 
 .social-icons a {
-    transition: transform 0.2s ease; /* Smooth transition for scaling */
+    transition: transform 0.2s ease; 
 }
 
 .social-icons a:active {
-    transform: scale(0.9); /* Scale down when clicked */
+    transform: scale(0.9); 
 }
 
 
 .social-icons a.clicked {
-    transform: scale(0.9); /* Scale down when clicked */
-    transition: transform 0.2s ease; /* Smooth transition */
+    transform: scale(0.9); 
+    transition: transform 0.2s ease; 
 }
 
 
-
 footer {
-    margin-top: 20px;
-    color: #777; /* Set text color to grey */
+    margin-top: 23px; /* Increased 20px -> 23px */
+    color: #777; 
     display: flex;
     justify-content: center;
     font-family: 'Noto Sans', sans-serif;
@@ -198,26 +188,27 @@ footer {
     background-color: rgba(20, 20, 20, 0.9);
     border: 1px solid #333;
     border-radius: 12px;
-    padding: 15px;
-    width: 280px;
-    margin: 20px auto;
+    /* Increased Padding 15px -> 18px */
+    padding: 18px;
+    /* Increased Width 280px -> 283px */
+    width: 283px;
+    margin: 23px auto; /* Increased margin */
     text-align: left;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     backdrop-filter: blur(5px);
     
-    /* Stack items vertically: Header -> Row -> Progress */
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between elements */
+    gap: 13px; /* Increased gap 10px -> 13px */
 
-    /* Protection */
     user-select: none;
     -webkit-user-select: none;
 }
 
 /* header styling */
 .spotify-header {
-    font-size: 12px;
+    /* Increased font 12px -> 15px */
+    font-size: 15px;
     color: #1DB954;
     font-weight: bold;
     display: flex;
@@ -234,14 +225,15 @@ footer {
 
 /* The Image Styling */
 #spotify-album-art {
-    width: 56px !important;
-    height: 56px !important;
-    min-width: 56px !important;
+    /* Increased size 56px -> 59px */
+    width: 59px !important;
+    height: 59px !important;
+    min-width: 59px !important;
     border-radius: 8px;
-    margin-right: 12px;
+    margin-right: 15px; /* Increased margin */
     object-fit: cover;
-    flex-shrink: 0; /* Prevents squishing */
-    pointer-events: none; /* Cannot click/drag */
+    flex-shrink: 0; 
+    pointer-events: none; 
 }
 
 /* The Text Info */
@@ -253,7 +245,8 @@ footer {
 }
 
 .song-title {
-    font-size: 14px;
+    /* Increased font 14px -> 17px */
+    font-size: 17px;
     font-weight: bold;
     color: #fff;
     margin: 0;
@@ -265,7 +258,8 @@ footer {
 }
 
 .artist-name {
-    font-size: 12px;
+    /* Increased font 12px -> 15px */
+    font-size: 15px;
     color: #b3b3b3 !important;
     margin: 2px 0 0 0;
     display: block !important;
@@ -281,7 +275,8 @@ footer {
 
 .spotify-progress-bar {
     width: 100%;
-    height: 4px;
+    /* Increased height 4px -> 7px */
+    height: 7px;
     background-color: #404040;
     border-radius: 2px;
     position: relative;
@@ -289,7 +284,7 @@ footer {
 
 #spotify-progress-fill {
     height: 100%;
-    background-color: #fff; /* White bar like Spotify */
+    background-color: #fff; 
     border-radius: 2px;
     width: 0%;
     transition: width 1s linear;
@@ -298,12 +293,9 @@ footer {
 .spotify-time {
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
+    /* Increased font 10px -> 13px */
+    font-size: 13px;
     color: #b3b3b3;
-    margin-top: 5px;
-    font-family: monospace; /* Keeps numbers aligned */
+    margin-top: 8px; /* Increased margin */
+    font-family: monospace; 
 }
-
-
-
-
