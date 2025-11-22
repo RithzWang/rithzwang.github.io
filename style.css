@@ -323,3 +323,87 @@ footer {
     object-fit: cover;  /* Ensures image doesn't stretch weirdly */
     border: 2px solid white; /* The white ring */
 }
+
+/* --- SCROLL SNAP LOGIC --- */
+
+/* 1. Reset body to handle the swipe container */
+body {
+    overflow: hidden; 
+    padding: 0;       
+}
+
+/* 2. The container that holds the 2 pages side-by-side */
+.snap-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    width: 100vw;
+    height: 100vh;
+    scroll-behavior: smooth;
+}
+
+/* 3. Each page fills the screen */
+.snap-page {
+    flex: 0 0 100vw;
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto; 
+}
+
+/* Hide scrollbar */
+.snap-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* --- ARROW STYLES --- */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px; /* Adjust size here */
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    z-index: 100;
+    padding: 20px;
+    transition: color 0.3s;
+    animation: pulseArrow 2s infinite;
+}
+
+.nav-arrow:hover {
+    color: #fff;
+}
+
+/* Right Arrow Position */
+.right-arrow {
+    right: 10px;
+}
+
+/* Left Arrow Position */
+.left-arrow {
+    left: 10px;
+}
+
+@keyframes pulseArrow {
+    0% { transform: translateY(-50%) scale(1); opacity: 0.5; }
+    50% { transform: translateY(-50%) scale(1.2); opacity: 0.9; }
+    100% { transform: translateY(-50%) scale(1); opacity: 0.5; }
+}
+
+/* FIX: Close your old CSS error */
+.profile-picture {
+    width: 130px;      
+    height: 130px;     
+    border-radius: 50%; 
+    object-fit: cover;  
+    border: 2px solid white;
+}
