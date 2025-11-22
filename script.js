@@ -124,6 +124,11 @@ setInterval(updateProgressBar, 1000);
 
 // --- RAIN EFFECT LOGIC ---
 
+// Create an element
+const icon = document.createElement("i");
+icon.className = "fa-regular fa-snowflake";
+
+
 // 1. Create the container if it doesn't exist yet
 let rainContainer = document.getElementById('rain-container');
 if (!rainContainer) {
@@ -135,7 +140,7 @@ if (!rainContainer) {
 function createRainDrop() {
     const drop = document.createElement('div');
     drop.classList.add('raindrop');
-    drop.innerText = 'q1tn';
+    drop.innerText = icon;
 
     // --- Randomize Properties ---
     
