@@ -122,49 +122,34 @@ setInterval(getDiscordStatus, 5000);
 setInterval(updateProgressBar, 1000);
 
 
-// --- RAIN EFFECT LOGIC ---
-
-
-
-// 1. Create the container if it doesn't exist yet
-let rainContainer = document.getElementById('rain-container');
-if (!rainContainer) {
-    rainContainer = document.createElement('div');
-    rainContainer.id = 'rain-container';
-    document.body.appendChild(rainContainer);
-}
-
 function createRainDrop() {
     const drop = document.createElement('div');
     drop.classList.add('raindrop');
-    drop.innerText = "<i class="fa-regular fa-snowflake"></i>";
-
-    // --- Randomize Properties ---
     
-    // Random horizontal position (0% to 100% of viewport width)
-    drop.style.left = Math.random() * 100 + 'vw';
+    // --- CHANGE IS HERE ---
+    // Use innerHTML to inject the Font Awesome icon code
+    drop.innerHTML = '<i class="fa-regular fa-snowflake"></i>';
 
-    // Random animation duration (fall speed between 2s and 7s)
+    // --- UPDATED POSITION LOGIC ---
+    const maxPosX = window.innerWidth - 50; 
+    const randomPos = Math.floor(Math.random() * maxPosX);
+    drop.style.left = randomPos + 'px';
+
+    // --- Animation Duration ---
     const duration = Math.random() * 5 + 2; 
     drop.style.animationDuration = duration + 's';
 
-    // Random opacity for depth effect
+    // --- Opacity ---
     drop.style.opacity = Math.random() * 0.6 + 0.2; 
 
-    // Random font size for variety
-    const size = Math.random() * 12 + 10; // between 10px and 22px
+    // --- Size (adjusted slightly for icons) ---
+    const size = Math.random() * 15 + 10; 
     drop.style.fontSize = size + 'px';
 
-    // Add to container
     rainContainer.appendChild(drop);
 
     // --- Cleanup ---
-    // Remove element after animation finishes to prevent memory leaks
     setTimeout(() => {
         drop.remove();
     }, duration * 1000);
 }
-
-// Start the rain generator
-// Change '100' to a lower number for MORE rain, higher for LESS rain.
-setInterval(createRainDrop, 100); 
