@@ -303,17 +303,17 @@ footer {
 
 /* --- RAIN EFFECT --- */
 
-/* Container for rain so it doesn't affect layout */
 #rain-container {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none; /* Ensure clicks go through to links below */
-    z-index: 9999; /* Sit on top of everything */
+    width: 100%; /* Changed from 100vw to 100% */
+    height: 100%; /* Changed from 100vh to 100% */
+    pointer-events: none;
+    z-index: 9999;
     overflow: hidden;
 }
+
 
 /* Individual drop style */
 .raindrop {
