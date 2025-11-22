@@ -324,15 +324,13 @@ footer {
     border: 2px solid white; /* The white ring */
 }
 
-/* --- SCROLL SNAP LOGIC --- */
+/* --- SCROLL SNAP LOGIC (Standard Layout) --- */
 
-/* 1. Reset body to handle the swipe container */
 body {
     overflow: hidden; 
     padding: 0;       
 }
 
-/* 2. The container that holds the 2 pages side-by-side */
 .snap-container {
     display: flex;
     flex-direction: row;
@@ -344,7 +342,11 @@ body {
     scroll-behavior: smooth;
 }
 
-/* 3. Each page fills the screen */
+/* Hide scrollbar */
+.snap-container::-webkit-scrollbar {
+    display: none;
+}
+
 .snap-page {
     flex: 0 0 100vw;
     width: 100vw;
@@ -359,36 +361,32 @@ body {
     overflow-y: auto; 
 }
 
-/* Hide scrollbar */
-.snap-container::-webkit-scrollbar {
-    display: none;
-}
-
 
 /* --- ARROW STYLES --- */
 .nav-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 30px; /* Adjust size here */
+    font-size: 30px; 
     color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
     z-index: 100;
     padding: 20px;
     transition: color 0.3s;
     animation: pulseArrow 2s infinite;
+    cursor: pointer;
 }
 
 .nav-arrow:hover {
     color: #fff;
 }
 
-/* Right Arrow Position */
+/* Arrow on the Right side of the screen */
 .right-arrow {
     right: 10px;
 }
 
-/* Left Arrow Position */
+/* Arrow on the Left side of the screen */
 .left-arrow {
     left: 10px;
 }
@@ -399,7 +397,7 @@ body {
     100% { transform: translateY(-50%) scale(1); opacity: 0.5; }
 }
 
-/* FIX: Close your old CSS error */
+/* Fix for the syntax error from before */
 .profile-picture {
     width: 130px;      
     height: 130px;     
@@ -407,3 +405,4 @@ body {
     object-fit: cover;  
     border: 2px solid white;
 }
+
