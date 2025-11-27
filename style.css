@@ -149,7 +149,6 @@ p {
 
 .social-icons a {
     color: #fff; /* Icon color */
-    margin-top: -10px;
     margin: 0 3px; /* Space between icons */
     font-size: 23px; /* Icon size */
     text-decoration: none; /* Remove underline */
@@ -199,7 +198,7 @@ footer {
     border-radius: 12px;
     padding: 15px;
     width: 278px;
-    margin: 10px auto;
+    margin: -10px auto;
     text-align: left;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     backdrop-filter: blur(5px);
