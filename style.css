@@ -96,7 +96,7 @@ h1 {
   /* Increased font size */
   font-size: 40px;
   /* RESTORED MARGIN */
-  margin-top: -10px;
+  margin-top: -15px;
   margin: 7px 0;
   background: linear-gradient(120deg, yellow, orange, red, orange, yellow);
   background-size: 400% auto;
@@ -130,7 +130,7 @@ p.yousuf {
   font-family: "Amiri", serif;
   font-weight: bold;
   font-size: 20px;
-  margin-top: -20px;
+  margin-top: -15px;
   background: linear-gradient(120deg, yellow, orange, red, orange, yellow);
   background-size: 400% auto;
   background-position: 0% center;
