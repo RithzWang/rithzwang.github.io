@@ -128,6 +128,7 @@ p.spidey-text {
 p.yousuf {
   font-family: "Amiri", serif;
   font-weight: bold;
+  font-size: 20px;
   margin: -1px;
   background: linear-gradient(120deg, white, blue, white);
   background-size: 400% auto;
