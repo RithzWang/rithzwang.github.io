@@ -130,7 +130,7 @@ p.yousuf {
   font-weight: bold;
   font-size: 20px;
   margin-top: -10px;
-  background: linear-gradient(120deg, white, yellow, orange, yellow, white);
+  background: linear-gradient(120deg, white, yellow, orange, orange, yellow, white);
   background-size: 400% auto;
   background-position: 0% center;
   -webkit-background-clip: text;
