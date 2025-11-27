@@ -45,8 +45,8 @@ header {
 
 .profile-picture {
     /* Increased size */
-    width: 128px;
-    height: 128px;
+    width: 126px;
+    height: 126px;
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -64,8 +64,8 @@ header {
     transform: translate(-50%, -50%);
     
     /* Increased size */
-    width: 154px !important; 
-    height: 154px !important;
+    width: 152px !important; 
+    height: 152px !important;
     
     pointer-events: none;
     z-index: 10;
@@ -76,8 +76,8 @@ header {
     position: relative; 
     display: inline-block;
     /* Increased size */
-    width: 130px;
-    height: 130px;
+    width: 128px;
+    height: 128px;
     /* RESTORED MARGIN */
     margin-bottom: 10px;
 }
@@ -94,7 +94,7 @@ h1 {
   font-family: "Aref Ruqaa", serif;
   font-weight: 400;
   /* Increased font size */
-  font-size: 40px;
+  font-size: 38px;
   /* RESTORED MARGIN */
   margin: 7px 0;
   background: linear-gradient(120deg, yellow, orange, red, orange, yellow);
@@ -128,7 +128,7 @@ p.spidey-text {
 p.yousuf {
   font-family: "Amiri", serif;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: -20px;
   background: linear-gradient(120deg, yellow, orange, red, orange, yellow);
   background-size: 400% auto;
@@ -149,13 +149,13 @@ p {
 .social-icons a {
     color: #fff; /* Icon color */
     margin: 0 3px; /* Space between icons */
-    font-size: 25px; /* Icon size */
+    font-size: 23px; /* Icon size */
     text-decoration: none; /* Remove underline */
     display: inline-flex; /* Use flexbox for centering */
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
-    width: 43px; /* Circle width */
-    height: 43px; /* Circle height */
+    width: 41px; /* Circle width */
+    height: 41px; /* Circle height */
     border-radius: 50%; /* Make circle */
     background-color: rgba(255, 255, 255, 0.2); /* Background color */
     margin-bottom: 25px; /* Space below icons */
@@ -196,7 +196,7 @@ footer {
     border: 1px solid #333;
     border-radius: 12px;
     padding: 15px;
-    width: 280px;
+    width: 278px;
     margin: 10px auto;
     text-align: left;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
@@ -214,7 +214,7 @@ footer {
 
 /* header styling */
 .spotify-header {
-    font-size: 12px;
+    font-size: 10px;
     color: #1DB954;
     font-weight: bold;
     display: flex;
@@ -231,9 +231,9 @@ footer {
 
 /* The Image Styling */
 #spotify-album-art {
-    width: 56px !important;
-    height: 56px !important;
-    min-width: 56px !important;
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
     border-radius: 8px;
     margin-right: 12px;
     object-fit: cover;
@@ -250,7 +250,7 @@ footer {
 }
 
 .song-title {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: #fff;
     margin: 0;
@@ -262,7 +262,7 @@ footer {
 }
 
 .artist-name {
-    font-size: 12px;
+    font-size: 10px;
     color: #b3b3b3 !important;
     margin: 2px 0 0 0;
     display: block !important;
@@ -278,7 +278,7 @@ footer {
 
 .spotify-progress-bar {
     width: 100%;
-    height: 4px;
+    height: 2px;
     background-color: #404040;
     border-radius: 2px;
     position: relative;
